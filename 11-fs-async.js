@@ -2,7 +2,7 @@
 
 // destrucutre fs module for reading and writing to the file system
 const { readFile, writeFile } = require('fs')
-
+console.log('Starting async task')
 // read in files from the system, specify decoding method, callback method for results/errors
 const first = readFile('./content/first.txt', 'utf-8',(err,result)=>{
   if(err){
@@ -22,9 +22,8 @@ const first = readFile('./content/first.txt', 'utf-8',(err,result)=>{
         console.log(err)
         return
       }
-      console.log(result)
+      console.log('Done this async task')
     })
   })
 })
-
-
+console.log('Starting next task')

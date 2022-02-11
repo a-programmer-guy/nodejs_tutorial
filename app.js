@@ -1,30 +1,10 @@
-// FS MODULE - ASYNC
+// manual approach (create package.json in the root, create properties, etc.)
+// npm init (step by step)
+// npm init -y (everything default)
 
-// destrucutre fs module for reading and writing to the file system
-const { readFile, writeFile } = require('fs')
+//bring in lodash dependency
+const _ = require('lodash')
 
-// read in files from the system, specify decoding method, callback method for results/errors
-const first = readFile('./content/first.txt', 'utf-8',(err,result)=>{
-  if(err){
-    console.log(err)
-    return
-  }
-  const first = result;
-  readFile('./content/second.txt', 'utf-8', (err,result)=>{
-    if(err){
-      console.log(err)
-      return
-    }
-    const second = result;
-    writeFile(
-      './content/result-async.txt', `Here is the result: ${first}, ${second}`, (err, result)=> {
-      if(err){
-        console.log(err)
-        return
-      }
-      console.log(result)
-    })
-  })
-})
-
-
+const items = [ 1, [2, [3, [4]]]]
+const newItems = _.flattenDeep(items)
+console.log(newItems)

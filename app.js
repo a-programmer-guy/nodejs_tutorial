@@ -1,10 +1,16 @@
-// manual approach (create package.json in the root, create properties, etc.)
-// npm init (step by step)
-// npm init -y (everything default)
+// console.log('first task')
+// setTimeout(() => {
+//   console.log('second task')
+// }, 0)
 
-//bring in lodash dependency
-const _ = require('lodash')
+// console.log('next task')
 
-const items = [ 1, [2, [3, [4]]]]
-const newItems = _.flattenDeep(items)
-console.log(newItems)
+console.log('first task')
+console.time()
+for (let i = 0; i < 10000000; i++ ) {
+  const h3 = document.querySelector('h3')
+  h3.textContent = `Hey, everyone is waiting on me`
+}
+console.timeEnd()
+
+console.log('next task')

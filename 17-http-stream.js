@@ -3,13 +3,14 @@ const http = require('http')
 
 // create server
 http.createServer(function (req, res){
-  // send big file as one big chunk (68.7kb)- not ideal
+  // send big file as one big chunk - not ideal
   // const text = fs.readFileSync('./content/big.txt', 'utf8')
   // res.end(text)
   const fileStream = fs.createReadStream('./content/big.txt', 'utf8')
   // with fileStream we have access to events
   fileStream.on('open', ()=> {
-    //pipe the readstream into a writesteam response - sent in smaller chunks
+    //pipe the readstream into a writeable stream response - 
+    // checknetwork tab - transfer encoding-sent in smaller chunks
     fileStream.pipe(res)
 
   })
@@ -19,4 +20,3 @@ http.createServer(function (req, res){
   })
 })
 .listen(5000)
-

@@ -14,7 +14,7 @@ http.createServer(function (req, res){
     fileStream.pipe(res)
 
   })
-  // listen for an error and pas it in
+  // listen for an error and pass it in
   fileStream.on('error', (err)=> {
     console.log(err)
   })

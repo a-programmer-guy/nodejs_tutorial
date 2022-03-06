@@ -1,0 +1,29 @@
+{
+  "name": "nodejs_express_tutorial",
+  "version": "1.0.0",
+  "description": "Tutorial Link - [Click Here](https://www.youtube.com/watch?v=Oe421EPjeBE)",
+  "main": "1-intro.js",
+  "dependencies": {
+    "express": "^4.17.3",
+    "lodash": "^4.17.21",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "scripts": {
+    "start": "nodemon app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ctrl-kay/nodejs_express_tutorial.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ctrl-kay/nodejs_express_tutorial/issues"
+  },
+  "homepage": "https://github.com/ctrl-kay/nodejs_express_tutorial#readme"
+}

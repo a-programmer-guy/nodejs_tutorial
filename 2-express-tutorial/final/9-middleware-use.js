@@ -7,7 +7,7 @@ const app = express()
 
 // request => middleware => response
 // put all middleware above routes
-// use vs route:
+// use vs route: use lets all routes use that resource
 // prodiving a path will apply the middleware to ALL urls after that endpoint
 // app.use('/api', [logger, authorize])
 // applying middleware to specific routes will only affect that route

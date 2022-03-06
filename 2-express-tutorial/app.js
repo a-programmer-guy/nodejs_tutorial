@@ -1,38 +1,20 @@
 const express = require('express')
-// morgan 3rd party logger middleware
-const morgan = require('morgan')
-const logger = require('./logger')
-const authorize = require('./authorize')
-
 const app = express()
 
-// req => middleware => res
-// 1. use vs route
-// 2. options - our own / express / third party
+// Router for people - from routes folder
+const people = require('./routes/people')
+const auth = require('./routes/auth')
 
-// app.use('/api', [logger, authorize])
-// app.use(express.static('./public'))
+// Static assets
+app.use(express.static('./methods-public'))
+// Parse form data with .urlencode
+app.use(express.urlencoded({ extended: false }))
+// Parse json data - .json
+app.use(express.json())
 
-/// apply morgan with basic logger function to all routes
-app.use(morgan('tiny'))
-
-app.get('/',  (req, res) => {
-  console.log(req.user)
-  res.send('Home')
-})
-
-app.get('/about',  (req, res) => {
-  res.send('About')
-})
-
-app.get('/products',  (req, res) => {
-  res.send('Products')
-})
-
-app.get('/api/items', (req, res) => {
-  console.log(req.user)
-  res.send('Items')
-})
+// Base route for people, only router for people will be applied here
+app.use('/api/people', people)
+app.use('/login', auth)
 
 app.listen(5000, () => {
   console.log('Server is listening on port 5000....')
